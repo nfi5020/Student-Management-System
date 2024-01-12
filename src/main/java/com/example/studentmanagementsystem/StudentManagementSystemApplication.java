@@ -14,21 +14,19 @@ public class StudentManagementSystemApplication{
 		SpringApplication.run(StudentManagementSystemApplication.class, args);
 	}
 
-	@Autowired
+/*	@Autowired
 	private StudentRepository studentRepository;
 
-/*	@Override
+	@Override
 	public void run(String... args) throws Exception {
-*//*		Student student1 = new Student("Najrul", "Islam", "nislam611@cable.comcast.com");
+		Student student1 = new Student("Najrul", "Islam", "najrulislam611@cable.comcast.com");
 		studentRepository.save(student1);
 
-		Student student2 = new Student("Syful", "Islam", "syfulislam42@hotmail.com");
+		Student student2 = new Student("Syful", "Islam", "sislam@hotmail.com");
 		studentRepository.save(student2);
 
 		Student student3 = new Student("Saifan", "Islam", "Saifan_islam@gmail.com");
-		studentRepository.save(student3);*//*
+		studentRepository.save(student3);
 
 	}*/
-
-	//You are at 55:58 (about to write the footer)
 }
