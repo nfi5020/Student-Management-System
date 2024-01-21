@@ -2,14 +2,12 @@ package com.example.studentmanagementsystem.controller;
 
 import com.example.studentmanagementsystem.entity.Student;
 import com.example.studentmanagementsystem.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class StudentController {
     private StudentService studentService;
 
@@ -33,7 +31,7 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public String saveStudent(@ModelAttribute("student") Student student){
+    public String saveStudent(@Valid @ModelAttribute("student") Student student){
         studentService.saveStudent(student);
         return "redirect:/students";
     }
@@ -45,7 +43,7 @@ public class StudentController {
     }
 
     @PostMapping("/students/{id}")
-    public String updateStudent(@PathVariable Long id,
+    public String updateStudent(@Valid @PathVariable Long id,
                                 @ModelAttribute("student") Student student,
                                 Model model) {
         // Get the existing student if there is any

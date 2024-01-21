@@ -1,7 +1,8 @@
 package com.example.studentmanagementsystem.entity;
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 @Entity
 @Table(name = "students")
 public class Student {
@@ -10,12 +11,16 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Size(max = 15, message = "The length is larger than 15")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
+    @Size(max = 15, message = "The length is larger than 15")
     @Column (name = "last_name", nullable = false)
     private String lastName;
 
+    @Email(message = "Please provide a valid email")
+    @Size(max = 30, message = "The length is larger than 30")
     @Column (name = "email", nullable = false)
     private String email;
 
