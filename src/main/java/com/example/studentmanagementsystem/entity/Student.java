@@ -11,16 +11,16 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(max = 15, message = "The length is larger than 15")
+    @Size(max = 15, message = "The first name length cannot be more than 15")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Size(max = 15, message = "The length is larger than 15")
+    @Size(max = 15, message = "The last name length cannot be more than 15")
     @Column (name = "last_name", nullable = false)
     private String lastName;
 
     @Email(message = "Please provide a valid email")
-    @Size(max = 30, message = "The length is larger than 30")
+    @Size(max = 30, message = "The email length cannot be more than 30")
     @Column (name = "email", nullable = false)
     private String email;
 

@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StudentManagementSystemApplication{
+public class StudentManagementSystemApplication {
 
 	public static void main(String[] args){
 		SpringApplication.run(StudentManagementSystemApplication.class, args);
@@ -19,7 +19,7 @@ public class StudentManagementSystemApplication{
 
 	@Override
 	public void run(String... args) throws Exception {
-		Student student1 = new Student("Najrul", "Islam", "najrulislam611@cable.comcast.com");
+		Student student1 = new Student("Najrul", "Islam", "najrulislam611@.comcast.com");
 		studentRepository.save(student1);
 
 		Student student2 = new Student("Syful", "Islam", "sislam@hotmail.com");

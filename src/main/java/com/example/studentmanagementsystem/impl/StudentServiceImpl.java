@@ -1,6 +1,7 @@
 package com.example.studentmanagementsystem.impl;
 
 import com.example.studentmanagementsystem.entity.Student;
+import com.example.studentmanagementsystem.exception.NoStudentFoundException;
 import com.example.studentmanagementsystem.repository.StudentRepository;
 import com.example.studentmanagementsystem.service.StudentService;
 import org.springframework.stereotype.Service;
@@ -33,12 +34,17 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudentById(Long id) {
-        return studentRepository.findById(id).get();
+        return studentRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteStudent(Long id) {
+    public Student deleteStudent(Long id) {
         Student student = getStudentById(id);
-        studentRepository.delete(student);
+
+        if (student != null){
+            studentRepository.delete(student);
+        }
+
+        return student;
     }
 }
