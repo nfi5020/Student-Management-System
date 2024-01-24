@@ -21,7 +21,7 @@ public class Student {
 
     @Email(message = "Please provide a valid email")
     @Size(max = 30, message = "The email length cannot be more than 30")
-    @Column (name = "email", nullable = false)
+    @Column (name = "email", nullable = false, unique = true)
     private String email;
 
     public Student() {
