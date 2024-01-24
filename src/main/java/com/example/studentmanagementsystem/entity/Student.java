@@ -1,8 +1,12 @@
 package com.example.studentmanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
+
+import java.util.List;
+
 @Entity
 @Table(name = "students")
 public class Student {
@@ -23,6 +27,10 @@ public class Student {
     @Size(max = 30, message = "The email length cannot be more than 30")
     @Column (name = "email", nullable = false, unique = true)
     private String email;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "student")
+    private List<Course> course;
 
     public Student() {
     }
@@ -64,5 +72,23 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Course> getCourse() {
+        return course;
+    }
+
+    public void setCourse(List<Course> course) {
+        this.course = course;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

@@ -1,7 +1,7 @@
 package com.example.studentmanagementsystem.controller;
 
 import com.example.studentmanagementsystem.entity.Student;
-import com.example.studentmanagementsystem.exception.NoStudentFoundException;
+import com.example.studentmanagementsystem.exception.*;
 import com.example.studentmanagementsystem.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
-@RestController
+//@RestController
 public class StudentRestController {
     private StudentService studentService;
 

@@ -1,7 +1,7 @@
 package com.example.studentmanagementsystem.impl;
 
 import com.example.studentmanagementsystem.entity.Student;
-import com.example.studentmanagementsystem.exception.NoStudentFoundException;
+import com.example.studentmanagementsystem.exception.*;
 import com.example.studentmanagementsystem.repository.StudentRepository;
 import com.example.studentmanagementsystem.service.StudentService;
 import org.springframework.stereotype.Service;

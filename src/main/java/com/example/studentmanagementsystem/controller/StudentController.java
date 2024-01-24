@@ -1,13 +1,18 @@
 package com.example.studentmanagementsystem.controller;
 
+import com.example.studentmanagementsystem.entity.Course;
 import com.example.studentmanagementsystem.entity.Student;
 import com.example.studentmanagementsystem.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.example.studentmanagementsystem.exception.*;
 
-//@Controller
+import java.util.List;
+
+
+@Controller
 public class StudentController {
     private StudentService studentService;
 
@@ -64,4 +69,21 @@ public class StudentController {
         studentService.deleteStudent(id);
         return "redirect:/students";
     }
+
+    @GetMapping("/students/{id}/courses")
+    public String getAllCourse(@PathVariable Long id, Model model){
+        Student student = studentService.getStudentById(id);
+
+        if (student == null){
+            throw new NoStudentFoundException("id: " + id);
+        }
+
+        model.addAttribute("courses", student.getCourse());
+
+        return "courses";
+    }
 }
+
+    //insert into course values (1, 3, 'SRA 100', 'In this course student will learn about the fundementals of Cyber Security', 1);
+    //insert into course values (2, 3, 'SRA 200', 'In this course student will learn advance topics of Cyber Security', 1);
+    //insert into course values (3, 4, 'IST 440', 'Student will work on a large application from start to finish', 1);
